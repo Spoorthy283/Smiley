@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smiley</title>	
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<link rel="manifest" href="/manifest.json">
+	</head>
+	<body id="the_body" onload = "smiley_match()">
+		<div class="container">			
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Smiley Matching</h3><br>
+					<p>Identify the Extra smiley on leftside</p>
+				</div>
+			</div>
+			<div class="row ">
+				<div class="container">
+				<div class="col-lg-6" id="leftside"></div>
+			
+				<div class="col-lg-6" id="rightside"></div>
+				
+				</div>
+			</div>
+		</div>
+			
+		<script>				
+			var leftside = document.getElementById("leftside");
+			var rightside = document.getElementById("rightside");				
+			
+			function generate_smileys(num) {	
+				
+				for(var i=0; i<num;i++) {
+				
+					var left1 = 100;
+					left1 = left1 + Math.floor(Math.random()*300);					
+					var top1 = 100;
+					top1 = top1 + Math.floor(Math.random()*400);	
+					
+					 var img1 = document.createElement("img");
+					 img1.setAttribute("src","Smiley.jpg");
+					 img1.style.position = "absolute";
+					 img1.style.left = left1+"px";
+					 img1.style.top = top1+"px";
+					 img1.style.width = 40+"px";
+					 img1.style.height = 40+"px";
+					 
+					 leftside.appendChild(img1); 
+					 leftside.lastChild.addEventListener("click", function() {alert("worng");});		
+
+					
+					var left2 = left1;		
+					var top2 = top1;
+										
+					 var img2 = document.createElement("img");
+					 img2.setAttribute("src","Smiley.jpg");
+					 img2.style.position = "absolute";
+					 img2.style.left = left2+"px";
+					 img2.style.top = top2+"px";
+					 img2.style.width = 40+"px";
+					 img2.style.height = 40+"px";					 
+					 rightside.appendChild(img2);
+					 rightside.lastChild.addEventListener("click", function() {alert("worng");});	
+				
+				}					 
+					 
+				
+				
+				 var left3 = 100;
+				 left3 = left3 + Math.floor(Math.random()*300);
+					
+				 var top3 = 100;
+				 top3 = top3 + Math.floor(Math.random()*400);					
+				 var img3 = document.createElement("img");
+				 img3.setAttribute("src","Smiley.jpg");
+				 img3.style.position = "absolute";
+				 img3.style.left = left3+"px";
+				 img3.style.top = top3+"px";
+				 img3.style.width = 40+"px";
+				 img3.style.height = 40+"px";				 
+				
+				leftside.appendChild(img3);			
+				 
+				 leftside.lastChild.addEventListener("click", function() {alert("sucess"); deletenodes(); generate_smileys(num+5);});			
+				 
+				 
+				 var div1 = document.createElement("br");
+				 var div2 = document.createElement("br");
+				 div1.style.clear="both";
+				 div2.style.clear="both";
+				 leftside.appendChild(div1);
+				 rightside.appendChild(div2);
+				 
+			}
+			function deletenodes() {
+				
+				while (leftside.firstChild) {
+					leftside.removeChild(leftside.firstChild);
+				}
+				
+				while (rightside.firstChild) {
+					rightside.removeChild(rightside.firstChild);
+				}
+				
+			}
+			function smiley_match() {
+				
+				generate_smileys(5);
+				
+			}
+		
+		</script>
+		
+		
+	</body>
+	
+</html>

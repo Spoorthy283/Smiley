@@ -1,0 +1,16 @@
+{
+    "name":"Smiley",
+    "short_name":"Smiley",
+    "start_url":"/SmileyGame.html",
+    "display":"standalone",
+    "background_color":"#FFE9D2",
+    "theme_color":"#FFE1C4",
+    "orientation":"portrait-primary",
+    "icons":[
+        {
+            "src":"/icons/Smiley.png",
+            "type":"image/png",
+            "size":"72x72"
+        }
+    ]
+}
